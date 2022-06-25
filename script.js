@@ -79,13 +79,6 @@ playerCompAndPlayer.addEventListener('click', ()=>{
             compArr = [];
             equal = [];
             console.log(player)
-          /*   if(player === "X"){
-                player = "O"
-                letsPlay()
-            }else if(player === "O"){
-                player = "X"
-            letsPlay()
-            } */
         }
 
      if(player === "X"){
@@ -100,7 +93,6 @@ playerCompAndPlayer.addEventListener('click', ()=>{
         player = "X"
        if(playerComp === "comp" && computerFirst === true){
         letsPlay()
-        
     }
         return
     }
@@ -149,7 +141,6 @@ function playerVsPlayer(ele){
         equal.push(ele.target.id);
         winnerChoose(playerOne, playerTwo, computerArray, equal);
         
-        
     }   else if(player === 'O'){
         switchButton.disabled = true
         playerCompAndPlayer.disabled = true;
@@ -158,17 +149,14 @@ function playerVsPlayer(ele){
             player = "X";
             playerTwo.push(ele.target.id);
             equal.push(ele.target.id);
-            winnerChoose(playerOne, playerTwo, compArr, equal);
-             
+            winnerChoose(playerOne, playerTwo, compArr, equal);  
        } 
 }
 }
 
 selectXO()
 
-
 //buton selectie cine sa puna primul
-
 playerFirst.addEventListener("click", ()=>{
     const switchButton = document.querySelector(".switchButton")
     if(computerFirst === false){
@@ -296,11 +284,11 @@ let winP2 = winTicTac.some(ele=>{
             setTimeout(resetAll, 200);
             setTimeout(computerTakeFirst, 250);
           })
-        scoreTwo += 1
-        scoreP2.innerHTML = scoreTwo;
-             divToe.forEach(el=>{
-                if(el.innerHTML === ""){
-                    el.style.pointerEvents = 'none'
+            scoreTwo += 1
+            scoreP2.innerHTML = scoreTwo;
+                divToe.forEach(el=>{
+                    if(el.innerHTML === ""){
+                        el.style.pointerEvents = 'none'
             }
         })
         return
@@ -333,9 +321,7 @@ let winP2 = winTicTac.some(ele=>{
             }
             
 }
-
-
-
+//functie resetare dupa ce se termina runda
 function resetAll(){
     const switchButton = document.querySelector(".switchButton");
     const divToe = document.querySelectorAll(".tacSquare");
@@ -359,6 +345,6 @@ function resetAll(){
  }
 
 
- const date = new Date();
+const date = new Date();
 let year = date.getFullYear();
 const an = (document.getElementById("an").textContent = year + " @eduardbede ");
