@@ -1,16 +1,20 @@
 const playerFirst = document.querySelector(".playerFirst");
 const divToe = document.querySelectorAll(".tacSquare");
 const switchButton = document.querySelector(".switchButton");
+//variabila de stocare
 let playerOne = [];
 let playerTwo = [];
 let computerArray = [];
 let compArr = [];
 let equal = [];
+//variabila pentru a stoca cu ce alege playerul sa joace X sau O
 let player = 'X';
+//variabila pentru a juca cu calculatorul sau cu player
 let playerComp = 'player';
 let scoreOne = 0;
 let scoreTwo = 0;
 let computerScore = 0;
+//variabila pentru a pune calculatorul primul
 let computerFirst = false;
 
 //functie selectie X sau O si 
@@ -40,7 +44,6 @@ playerCompAndPlayer.addEventListener('click', ()=>{
     computerFirst = false;
     scoreOne = 0;
     computerScore = 0;
-    console.log(playerComp)
     if(playerComp === 'comp'){
         playerComp = "player";
         divToe.forEach(el =>{
@@ -65,18 +68,43 @@ playerCompAndPlayer.addEventListener('click', ()=>{
     
 // buton schimbare X sau O
     switchButton.addEventListener("click", ()=>{
+      
+        if(playerComp === "comp" && computerFirst === true){
+            
+            divToe.forEach(el =>{
+                el.innerHTML = "";
+                el.style.pointerEvents = "";
+            });
+            computerArray = [];
+            compArr = [];
+            equal = [];
+            console.log(player)
+          /*   if(player === "X"){
+                player = "O"
+                letsPlay()
+            }else if(player === "O"){
+                player = "X"
+            letsPlay()
+            } */
+        }
+
      if(player === "X"){
         selectXO.innerHTML = 'O';
-       return player = "O"
+        player = "O"
+        if(playerComp === "comp" && computerFirst === true){
+            letsPlay()
+        }
+        return 
     } else if( player === "O"){
         selectXO.innerHTML = 'X';
-       return player = "X"
+        player = "X"
+       if(playerComp === "comp" && computerFirst === true){
+        letsPlay()
+        
+    }
+        return
     }
 });
- 
-
-
-
 
 //functie computer 
 function computerPlay(element){
@@ -123,8 +151,8 @@ function playerVsPlayer(ele){
         
         
     }   else if(player === 'O'){
-        switchButton.disabled = 'true'
-        playerCompAndPlayer.disabled = 'true';
+        switchButton.disabled = true
+        playerCompAndPlayer.disabled = true;
             ele.target.innerHTML = "O"
             ele.target.style.pointerEvents = 'none';
             player = "X";
@@ -148,7 +176,6 @@ playerFirst.addEventListener("click", ()=>{
         computerTakeFirst()
         document.querySelector(".selectPlayerFirst").innerHTML = "Computer"
        switchButton.disabled = true
-        console.log(computerFirst)
     } else if (computerFirst === true){
         switchButton.disabled = false
         divToe.forEach(el =>{
@@ -164,14 +191,12 @@ playerFirst.addEventListener("click", ()=>{
     }
 })
 
-
+// functie ca sa puna calculatorul primul
 function computerTakeFirst(){
     if(computerFirst === true && playerComp ==="comp"){
         letsPlay()
     }
 }
-
-
 
 //functie random Computer
 function letsPlay(){
@@ -186,14 +211,12 @@ function letsPlay(){
           equal.push(randomNum);
       }
       winnerChoose(playerOne, playerTwo, computerArray, equal);
-     if(equal.length !== 9){
        document.getElementById(`${randomNum}`).style.pointerEvents = 'none';
       if(player === "X"){
           document.getElementById(`${randomNum}`).innerHTML = 'O';
       } else if(player === "O"){
           document.getElementById(`${randomNum}`).innerHTML = 'X';
       }
-  }
   }
 
 
@@ -258,7 +281,6 @@ let winP2 = winTicTac.some(ele=>{
             scoreOne ++;
             console.log(scoreOne)
             scoreP1.innerHTML = scoreOne;
-            console.log("X Wins")
                 divToe.forEach(el=>{
                  if(el.innerHTML === ""){
                      el.style.pointerEvents = 'none';
@@ -276,7 +298,6 @@ let winP2 = winTicTac.some(ele=>{
           })
         scoreTwo += 1
         scoreP2.innerHTML = scoreTwo;
-             console.log("O Wins")
              divToe.forEach(el=>{
                 if(el.innerHTML === ""){
                     el.style.pointerEvents = 'none'
@@ -294,7 +315,6 @@ let winP2 = winTicTac.some(ele=>{
           })
             computerScore += 1;
             scoreP2.innerHTML = computerScore;
-            console.log("Comp Win")
             divToe.forEach(el=>{
                 if(el.innerHTML === ""){
                     el.style.pointerEvents = 'none'
@@ -309,9 +329,7 @@ let winP2 = winTicTac.some(ele=>{
         }).then(function() {
             setTimeout(resetAll, 200);
             setTimeout(computerTakeFirst, 250);
-            
-          })
-                console.log("Egal")
+          });
             }
             
 }
