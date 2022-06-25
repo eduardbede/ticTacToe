@@ -1,0 +1,208 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-rows:1fr 7fr 0.7fr;
+ 
+}
+header{
+    background-color: rgb(109, 161, 206);
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7vh;
+    letter-spacing: 0.6px;
+    word-spacing: 0.8px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: small-caps;
+  }
+
+  #an {
+    margin-right: 10px;
+  }
+  a:link {
+    text-decoration: none;
+  }
+footer{
+    background-color: aqua;
+}
+
+.main{
+    height: 100%;
+    width: 50%;
+}
+
+.mainTwo{
+    display: grid;
+    justify-items: center;
+    background-color: #05396b;
+    
+}
+.content{
+    height: 100%;
+    width: 100%;
+  /*   border: 1px solid black; */
+}
+
+.gridDivs{
+    display: grid;
+   /*  border: 1px solid black; */
+    justify-content: center;
+    align-content: center;
+    padding: 3px;
+    background-color: #5CDB94;
+
+}
+
+#ticTacGrid{
+    grid-template-columns: repeat(3, 190px);
+    grid-template-rows: repeat(3, 190px);
+ 
+} 
+
+.tacSquare{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+
+
+/* bordere grid  */
+.gridDivs > :first-child{
+    border-bottom: 5px black solid;
+    border-right: 5px black solid;
+}
+.gridDivs > :nth-child(2){
+    border-bottom: 5px black solid;
+    border-right: 5px black solid;
+}
+.gridDivs >:nth-child(3){
+    border-bottom: 5px black solid;
+}
+
+.gridDivs > :nth-child(4){
+    border-bottom: 5px black solid;
+    border-right: 5px black solid;
+}
+
+.gridDivs > :nth-child(5){
+    border-bottom: 5px black solid;
+    border-right: 5px black solid;
+}
+.gridDivs > :nth-child(6){
+    border-bottom: 5px black solid;
+}
+.gridDivs > :nth-child(7){
+    border-right: 5px black solid;
+}
+.gridDivs > :nth-child(8){
+    border-right: 5px black solid;
+}
+
+.score{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    background-color: #ab3b61;
+}
+
+.scoreP1,
+.scoreP2{
+    font-size:x-large;
+    margin: 10px;
+}
+
+.laButoane{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items:center;
+    align-items: center;
+    gap: 5px;
+    background-color: #e27d5f;
+    padding: 5px;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: larger;
+    font-weight: bolder;
+    margin-bottom: 1px;
+}
+
+.playerWord,
+.conputerScore{
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+@media (max-width: 576px){
+
+  .main{
+    width: auto;
+  }
+  #ticTacGrid {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 14vh);
+    }
+}
+
+/* <!-- HTML !-->
+<button class="button-32" role="button">Button 32</button> */
+
+/* CSS */
+.button-32 {
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-32:not(:disabled):hover,
+.button-32:not(:disabled):focus {
+  outline: 0;
+  background: #f4e603;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+.button-32:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
