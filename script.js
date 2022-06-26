@@ -343,6 +343,9 @@ function resetAll(){
     compArr = [];
     equal = [];
  }
+//resetare totala cand apasam pe hader
+const header =  document.querySelector("header")
+header.addEventListener("click",resetAll)
 
 
 const date = new Date();
