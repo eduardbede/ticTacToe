@@ -176,8 +176,32 @@ p{
     }
 }
 
-/* <!-- HTML !-->
-<button class="button-32" role="button">Button 32</button> */
+
+/* media querry pentru landscape */
+
+@media only screen and (max-height: 575.98px) and (orientation: landscape) {
+    #ticTacGrid {
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+    }
+}
+
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .content {
+    width: 80vw;
+  }
+  .main{
+    width: auto;
+  }
+  
+}
 
 /* CSS */
 .button-32 {
